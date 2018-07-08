@@ -150,6 +150,14 @@ $$
 
 \section{Lineare Klassifikatoren}
 
+Klassifizieren eines Vektors $V$ wird durch Wenn $V=\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix}$ so kann die Gleichung gegen null gesetzt werden und dieses Ergebniss ist die Diskriminanzfunktion.
+\begin{equation} \label{linclass:1}
+	- w^{*T} \cdot V - w_0
+\end{equation}
+Das Signum des Ergebnisses gibt die Klassifizierung an.
+
 \subsection{Fisher Diskriminante}
 
 Brerechnen des Klassenmittelpunktes $\mu$ der Klasse $i$
@@ -172,17 +180,15 @@ $$w^* = S_{w}^{-1}(\mu_{2} - \mu_{1}) $$
 $$ w_{0}^* = w^{*T} \frac{1}{N} (N_{1} \mu_{1} + N_2 \mu_{2}) $$
 wobei $N$ die Anzahl aller Klassifizierten Vektoren und $N_i$ die Anzahl der Vektoren die in der Klasse $i$ ist
 
-Klassifizieren eines Vektors $V$ wird durch Wenn $V=\begin{pmatrix}
-x_1 \\ x_2
-\end{pmatrix}$ so kann die Gleichung gegen null gesetzt werden und dieses Ergebniss ist die Diskriminanzfunktion.
-$$ - w^{*T} \cdot V - w_0 $$
-Das Signum des Ergebnisses gibt die Klassifizierung an.
+Über \ref{linclass:1} kann nun die Diskriminanzfunktion bestimmt oder Punkte Klassifiziert werden.
 
 \subsection{Lineare Kleinste Quadrate}
 
-Berechnung der Diskriminanzfunktion $w^*$
-$$ w^* = (X^T X )^{-1}X^T t $$
+Erweitern von w in höhere Dimension
 
+Berechnung der Diskriminanzfunktion $w^*$
+$$ w^* = (X X^T)^{-1}X t^T $$
+Über \ref{linclass:1} kann nun die Diskriminanzfunktion bestimmt oder Punkte Klassifiziert werden.
 
 \section{Perceptron}
 Überführung des Inputs in höher Dimensionales Problem $x \in \!R^{D+1}$
@@ -290,8 +296,8 @@ $d_2 =$ euklidischer Abstand. Definiert durch $d_2=\sqrt{(x_1 - x_2)^2+(y_1 - y_
 	\\
 	$ w^* = 
 		\begin{pmatrix}
-			-4 \\
-			9
+			4 \\
+			-9
 		\end{pmatrix}
 	$ 
 	$ w_0 =
@@ -322,8 +328,29 @@ $d_2 =$ euklidischer Abstand. Definiert durch $d_2=\sqrt{(x_1 - x_2)^2+(y_1 - y_
 	\end{figure}	
 	
 	
-	\item c: %TODO
-	\item d: %TODO
+	\item c: \\ 
+		$w^* = 
+		\begin{pmatrix}
+			0 \\
+			\frac{8}{27} \\
+			-\frac{2}{3}
+		\end{pmatrix}$
+		$w_0 = 
+			\begin{pmatrix}
+			0 \\
+			0
+			\end{pmatrix}$
+	\item d: \\
+		$w^* \cdot \begin{pmatrix}
+			2\\1
+		\end{pmatrix} - w_0$
+		\\
+		Fischer: 
+		$= -1$
+		\\
+		KLQ:
+		$= -\frac{2}{277}$
+		\\
 \end{itemize}
 
 \subsubsection{Aufgabe 3}

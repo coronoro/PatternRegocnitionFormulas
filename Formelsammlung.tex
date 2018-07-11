@@ -58,14 +58,13 @@ ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{
 \sigma_{2}^2 \cdot \sigma_{1}^2 \cdot ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{2}_1}}) &= -\frac{1}{2} \cdot \sigma_{1}^2 (x-\mu_2)^2 - -\frac{1}{2} \cdot \sigma_{2}^2 (x-\mu_1)^2
 %  -2 \cdot \sigma_{2}^2 \cdot \sigma_{1}^2 \cdot ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{2}_1}}) = 
 \\
-&=
+-2 \cdot \sigma_{2}^2 \cdot \sigma_{1}^2 \cdot ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{2}_1}}) &=
 \sigma_{1}^2 (x^2 - 2\mu_{2}x + \mu_{2}^2) - 
 \sigma_{2}^2 (x^2- 2\mu_{1}x + \mu_{1}^2) 
 %  -2 \cdot \sigma_{2}^2 \cdot \sigma_{1}^2 \cdot ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{2}_1}}) 
 \\
-& = 
-(\sigma_{1}^2 - \sigma_{2}^2) \cdot x^2 +
-(-\mu_{2}\sigma_{1}^2 + \mu_{1} \sigma_{2}^2)2x 
+& = (\sigma_{1}^2 - \sigma_{2}^2) \cdot x^2 +
+2(-\mu_{2}\sigma_{1}^2 + \mu_{1} \sigma_{2}^2)x 
 + \sigma_{1}^2 \mu_{2}^2 - \sigma_{2}^2\mu_{1}^2
 \end{align}
 
@@ -74,7 +73,7 @@ ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{
 \begin{aligned}
 0 = 
 (\sigma_{1}^2 - \sigma_{2}^2) \cdot x^2 +
-(-\mu_{2}\sigma_{1}^2 + \mu_{1} \sigma_{2}^2)2x 
+2(-\mu_{2}\sigma_{1}^2 + \mu_{1} \sigma_{2}^2)x 
 + \sigma_{1}^2 \mu_{2}^2 - \sigma_{2}^2\mu_{1}^2
 + 2 \cdot \sigma_{2}^2 \cdot \sigma_{1}^2 \cdot ln(\mathcal{P} \cdot \mathcal{V} \cdot \frac{\sqrt{\sigma^{2}_2}}{\sqrt{\sigma^{2}_1}})
 \end{aligned}
@@ -154,7 +153,7 @@ Klassifizieren eines Vektors $V$ wird durch Wenn $V=\begin{pmatrix}
 x_1 \\ x_2
 \end{pmatrix}$ so kann die Gleichung gegen null gesetzt werden und dieses Ergebniss ist die Diskriminanzfunktion.
 \begin{equation} \label{linclass:1}
-	- w^{*T} \cdot V - w_0
+	w^{*T} \cdot V + w_0
 \end{equation}
 Das Signum des Ergebnisses gibt die Klassifizierung an.
 
@@ -177,7 +176,7 @@ $$ S_{W} = \sum_{k \in C_1}^{}  (x_k - \mu_{1})(x_k - \mu_{1})^T +
 
 $$w^* = S_{w}^{-1}(\mu_{2} - \mu_{1}) $$
 
-$$ w_{0}^* = w^{*T} \frac{1}{N} (N_{1} \mu_{1} + N_2 \mu_{2}) $$
+$$ w_{0}^* = - w^{*T} \frac{1}{N} (N_{1} \mu_{1} + N_2 \mu_{2}) $$
 wobei $N$ die Anzahl aller Klassifizierten Vektoren und $N_i$ die Anzahl der Vektoren die in der Klasse $i$ ist
 
 Über \ref{linclass:1} kann nun die Diskriminanzfunktion bestimmt oder Punkte Klassifiziert werden.
@@ -709,5 +708,136 @@ $d_2 =$ euklidischer Abstand. Definiert durch $d_2=\sqrt{(x_1 - x_2)^2+(y_1 - y_
 
 Aufgabe c:
 
+
+\subsubsection{Aufgabe 3}
+
+\begin{itemize}
+		\item a: $X= 
+		\begin{pmatrix}
+			1 & 1 & 1 & 1 \\
+			2 & 3 & 6 & 8 \\
+			3 & 1 & 5 & 7
+		\end{pmatrix}$
+		\\
+		$t= \begin{pmatrix}
+				-1 & -1 & 1 & 1
+		\end{pmatrix}$
+		\\
+		$w = -\frac{1}{5}x + 7$
+		$w = \begin{pmatrix}
+			7\\
+			-\frac{1}{5}\\
+			-1
+		\end{pmatrix}$
+		
+		\item b: 
+		$w(1) = \begin{pmatrix}
+			6.9 \\
+			-\frac{1}{2}\\
+			-1.3
+		\end{pmatrix}$
+		
+		normiert: 
+		$w(1) = \begin{pmatrix}
+		\frac{69}{13} \\
+		-\frac{2}{13}\\
+		-1
+		\end{pmatrix}$
+		
+		\begin{figure}[h]
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines=middle,
+			axis line style={->},
+			grid=both,
+			xmin=-0, xmax=9,
+			ymin=-0, ymax=8,
+			xtick={0,...,8}, ytick={0,...,7}
+			]
+			\addplot[blue] [only marks] table {
+				2 3
+				3 1	
+			};
+			\addplot[red] [only marks] table {
+				6 5
+				8 7
+			};
+			
+			\addplot [domain=-5:55, samples=2, dashed] {-1/5*x+7};
+			\addplot [domain=-5:55, samples=2] {-2/13*x+69/13};
+			\end{axis}
+			\end{tikzpicture}		
+		\end{figure}
+		Die Gerade Klassifiziert jedoch alle punkte Falsch. Wenn $w(1)$ mit minus 1 multipliziert wird dreht sich die Klassifizierung.
+		
+		\item c: wenn wir den Vektor mit $-1$ multiplizieren ja. Wenn nicht nein.
+		
+		\item d: 
+\end{itemize}
+
+\subsubsection{Aufgabe 4}
+
+\begin{itemize}
+	\item a: 
+	
+	\begin{figure}[h]
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines=middle,
+		axis line style={->},
+		grid=both,
+		xmin=0, xmax=11,
+		ymin=0, ymax=7,
+		xtick={0,...,10}, ytick={0,...,7}
+		]
+		\addplot [only marks] table {
+			2 2
+			4 3
+			4 4
+			4 6
+			7 2
+			10 2
+		};
+		
+		\end{axis}
+		\end{tikzpicture}		
+	\end{figure}
+	
+	
+	\item b: 
+	
+	$\begin{matrix}
+		& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 \\
+		-\pi/2 & -2 & -3 & -4 & -6 & -2 & -2 \\
+		-\pi/4 	& 0 & 0.7071 	& 0 & -1.414 	& 3.5355 & 5.6569 \\
+		0 		& 2 & 3 		& 4 & 6 		& 2 & 2 \\
+		\pi/4 & 2.8284 & 4.9497 & 5.6569 & 7.0711 & 6.3640 & 8.4853 \\
+		\pi/2 & 2 & 3 & 4 & 6 & 2 & 2 \\
+	\end{matrix}$
+	
+		\begin{figure}[h]
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines=middle,
+		axis line style={->},
+		grid=both,
+		xmin={-pi}, xmax={pi},
+		ymin=-12, ymax=12
+		]
+		\foreach \a in {2,4,4,4,7,10}
+			\foreach \b in {2,3,4,6,2,2}{
+				\addplot [domain=-pi:pi, samples=200] {cos(deg(x))*\a+ sin(deg(x))*\b};
+			}
+		
+		
+		
+		\end{axis}
+		\end{tikzpicture}		
+	\end{figure}
+	
+	\item c:
+	
+	\item d: Das nur die Geraden erkannt werden welche in der Abtastung enthalten sind.
+\end{itemize}
 
 \end{document}

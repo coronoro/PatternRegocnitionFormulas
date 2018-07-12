@@ -255,5 +255,19 @@ $d_1 =$ manhatten Abstand. Definiert durch $d_1 = |(x_1 - x_2)| + |(y_1 - y_2)|$
 \\
 $d_2 =$ euklidischer Abstand. Definiert durch $d_2=\sqrt{(x_1 - x_2)^2+(y_1 - y_2)^2}$
 \\
+$d_p(x,y) = (\sum_{i = 1}^{l} w_i \cdot | x_i - y_i|^p )^{1/p} $
+\subsection{Pearson}
+Wenn der Vektor $x$ aus aus $i$ Werten besteht so ist 
+$$\bar{x} = \frac{1}{|x|}\sum x_i$$
+$$x_d = x -\bar{x} * \mathbf{1}$$
+$$d_{Pearson}(x,y) = \frac{x_{d}^T y_{d}}{||x_d||\cdot||y_d||}$$
+$$||x|| = \sqrt{\sum x_{i}^2}$$
+
+
+\section{Linkage Algorithmen}
+	\subsection{Single Linkage}
+		minimaler Abstand zwischen den Punkten
+	\subsection{Complete linkage}
+	minimaler der maximalen Abstände zwischen den Punkten
 
 \end{document}

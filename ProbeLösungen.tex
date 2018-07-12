@@ -597,4 +597,38 @@ Aufgabe c:
 
 \subsection{Aufgabe 1}
 
+	\subsubsection{a}
+	Die Flasche soll immer bis zu der blau markierten Linie gefüllt sein. Ansonsten soll die Flasche zurückgewiesen werden. Das Bild soll zweigeteilt werden in oberen und unteren Teil. Der untere Teil soll immer als Flüssigkeit klassifiziert werden. Dafür kann der Bayessche Ansatz genutzt werden. Die Entscheidung kann durch eine Verlustmatrix und einer Entscheidungsgrenze entsprechend beeinflusst werden.
+	
+	\subsubsection{b}
+	
+	Für ein Merkmal könnte das Bild Binarisiert und dann ein Mittelwert über den entsprechenden Teil gebildet werden.
+
+	\subsubsection{c}
+	Bayes'scher Ansat: 
+
+\subsection{Aufgabe 2}
+	\subsubsection{a}
+		\begin{figure}[h]
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines=middle,
+			axis line style={->},
+			grid=both,
+			xmin=-3, xmax=4,
+			ymin=0, ymax=1,
+			xtick={-2,...,4}, ytick={0.0,0.1,...,1}
+			]
+			\addplot [ red, smooth] {(1/(2*pi*0.49)^0.5)*e^(((-1/2)*(x-2)^2)/0.49)};
+			\addplot [ blue, smooth] {(1/(2*pi*0.81)^0.5)*e^(((-1/2)*(x-0)^2)/0.81)};
+			
+			
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{figure}
+
+	\subsubsection{b}
+		
+
 \end{document}
